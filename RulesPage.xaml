@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tic_tac_toe.RulesPage"
+             Title="Game rules">
+    <ScrollView>
+    <StackLayout>
+
+        <Label Margin="10,10,10,10" Text="Simple rules of TIC-TAC-TOE" FontSize="Medium" HorizontalOptions="Center"/>
+
+            <!-- Border containing the rules of the game with labels-->
+            <Border Stroke="{StaticResource tictactoeBlue}" Padding="10" Margin="20,20,20,20">
+            <Grid HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Text="1. The game is played on a grid that's 3 squares by 3 squares." FontSize="Default" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0" TextColor="{StaticResource tictactoeBlue}"/>
+                <Label Text="2. Two players take turns putting their marks in empty squares with either X or O." FontSize="Default" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="1" TextColor="{StaticResource tictactoeBlue}"/>
+                <Label Text="3. The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner." FontSize="Default" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="2" TextColor="{StaticResource tictactoeBlue}"/>
+                <Label Text="4. If all 9 squares are full and no player has 3 marks in a row, the game is a draw." FontSize="Default" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="3" TextColor="{StaticResource tictactoeBlue}"/>
+                <Label Text="HAPPY GAMING!" FontSize="Default" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="4" Margin="0,10,0,0" TextColor="{StaticResource tictactoeBlue}"/>
+            </Grid>
+        </Border>
+
+            <!-- Button to navigate to the next page -->
+            <Button Text="NEXT"
+                    Clicked="StartChoosePlayer_Clicked"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0,20,0,0"
+                    Style="{StaticResource buttonStyle}"/>
+
+            <!-- ImageButton for accessing special cheat codes, hidden to right of the page -->
+            <StackLayout HorizontalOptions="End" VerticalOptions="Start">
+                <ImageButton Source="question_mark.png"
+                             Clicked="OnImageButtonClicked"
+                             WidthRequest="20" HeightRequest="20" />
+            </StackLayout>
+        
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tic_tac_toe.MainPage"
+             Title="TIC-TAC-TOE">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <!-- Application logo -->
+            <Image Source="logo.png"
+               HeightRequest="200"
+               HorizontalOptions="CenterAndExpand" />
+
+            <!-- Button to start the game -->
+            <Button Text="Start Game"
+                    Clicked="ToRulesPage_Clicked"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0,20,0,10"
+                    Style="{StaticResource buttonStyle}"/>
+
+            <!-- Button to exit the application -->
+            <Button Text="Exit"
+                    Clicked="Exit_Clicked"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource buttonStyle}"/>
+
+            <!-- Label that it the scoreboard -->
+            <Label Text="ScoreBoard" FontSize="Small" TextColor="{StaticResource tictactoeBlue}" HorizontalOptions="Center" Margin="0,40,0,5"/>
+
+            <!-- ListView to display the player information in the listview with a header -->
+            <Border Stroke="{StaticResource tictactoeBlue}" StrokeThickness="2" HorizontalOptions="Center" Margin="100,0,100,0">
+                <ListView x:Name="scoreboardListView" ItemsSource="{Binding Players}" Margin="5">
+
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Text="First Name" HorizontalOptions="StartAndExpand" FontSize="14"/>
+                            <Label Grid.Column="1" Text="Last Name" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="2" Text="Birth Year" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="3" Text="Wins" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="4" Text="Losses" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="5" Text="Draws" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="6" Text="Total Time Played" HorizontalOptions="StartAndExpand" />
+
+                            <BoxView Grid.ColumnSpan="7" HeightRequest="1" BackgroundColor="{StaticResource tictactoeGrey}" VerticalOptions="End" />
+                        </Grid>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding FirstName}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding LastName}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding BirthYear}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding Wins}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding Losses}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding Draws}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding TotalTimePlayed, StringFormat='{}{0:hh\\:mm\\:ss}'}" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+    
+
+</ContentPage>

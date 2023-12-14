@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="tic_tac_toe.GamePage"
+             Title="GamePage">
+    <ScrollView Orientation="Both">
+
+        <VerticalStackLayout>
+
+            <!-- Image to display winner or tie notification, visible after player wins the game win or game tied -->
+            <Image x:Name="WinnerImage" IsVisible="false" WidthRequest="300" Margin="0,20,0,20"/>
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="100" Margin="0,20,0,0">
+
+                <!-- Border for Player 1's turn indicator and player1 image-->
+                <Border x:Name="Player1Frame" StrokeThickness="2">
+                    <Image x:Name="Player1TurnImage" Source="player1_logo.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                </Border>
+
+                <!-- Secret code entry field -->
+                <Frame BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="1" Padding="0">
+                    <Entry x:Name="SecretEntry" TextColor="#F0F0F0"
+                           Placeholder=" VS" PlaceholderColor="{StaticResource tictactoeBlue}"
+                           Completed="SecretEntry_Completed" HorizontalOptions="CenterAndExpand"/>
+                </Frame>
+
+                <!-- Border for Player 2's turn indicator and player2 image or computer image -->
+                <Border x:Name="Player2Frame" StrokeThickness="2">
+                    <Image x:Name="Player2TurnImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                </Border>
+            </HorizontalStackLayout>
+
+            <!-- Label to display the game timer -->
+            <Label x:Name="TimerLabel" Text="00:00:00" FontSize="Small" TextColor="{StaticResource tictactoeGrey}" HorizontalOptions="Center" Margin="10"/>
+
+            <!-- Tic-Tac-Toe grid layout -->
+            <Grid HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="300"
+                HeightRequest="300"
+                BackgroundColor="Transparent">
+
+                <Grid x:Name="ticTacToeGrid" RowSpacing="5" ColumnSpacing="5" BackgroundColor="#1c1c1b">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Tic-Tac-Toe grid buttons (ImageButtons) -->
+                    <!-- Clicked event is handled by GridClicked method in C# code -->
+                    <!-- Initial Source set to "empty.png" -->
+                    <ImageButton Grid.Row="0" Grid.Column="0" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="0" Grid.Column="1" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="0" Grid.Column="2" Clicked="GridClicked" Source="empty.png"/>
+
+                    <ImageButton Grid.Row="1" Grid.Column="0" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="1" Grid.Column="1" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="1" Grid.Column="2" Clicked="GridClicked" Source="empty.png"/>
+
+                    <ImageButton Grid.Row="2" Grid.Column="0" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="2" Grid.Column="1" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="2" Grid.Column="2" Clicked="GridClicked" Source="empty.png"/>
+
+                </Grid>
+            </Grid>
+
+            <!-- Button to start the game, enabling the grid and timer -->
+            <Button x:Name="TimerAndGameBoard" Text="START GAME" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" Clicked="TimerAndGameBoardStart_Clicked" Style="{StaticResource buttonStyle}"/>
+
+            <!-- Button to navigate back to the main page -->
+            <Button x:Name="BackToMainPage" Text="Back to MainPage" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" Clicked="BackToMainpage_Clicked" Style="{StaticResource buttonStyle}"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+   
+
+</ContentPage>

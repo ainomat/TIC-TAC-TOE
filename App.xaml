@@ -1,0 +1,40 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:tic_tac_toe"
+             x:Class="tic_tac_toe.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!-- Custom colors for the tictactoe -->
+            <Color x:Key="tictactoeBlue">#0026be</Color>
+            <Color x:Key="tictactoeGrey">#1c1c1b</Color>
+
+            <!-- Custom background for every ContentPage -->
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+
+            <!-- Style of regular button -->
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource tictactoeBlue}"/>
+                <Setter Property="BorderColor" Value="{StaticResource tictactoeGrey}"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="CornerRadius" Value="1"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+            
+            <!-- Style of the buttons used in Grid in Gamepage -->
+            <Style x:Key="GridButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+            </Style>
+
+            <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+            <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
